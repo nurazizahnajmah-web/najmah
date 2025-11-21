@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starlib Luxe — Platform Pembelajaran Modern</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root { --bs-primary: #dc3545; }
+
+    body {
+      background: #f8f9fa;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    a { text-decoration: none; }
+    a:hover { color: #dc3545; }
+
+    .card { border-radius: 1rem; overflow: hidden; transition: all 0.3s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
+
+    /* Samakan ukuran logo di tiap kartu */
+    .logo-fit {
+      height: 220px;
+      width: 100%;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 1.25rem;
+    }
+
+    header { background: #fff; }
+    footer { margin-top: 2rem; }
+
+    /* Sedikit gaya pada judul */
+    .judul-section {
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-danger navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Starlib Luxe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kelas">Kelas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#daftar" id="linkDaftar">Daftar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="py-5 text-center">
+    <div class="container">
+      <h1 class="display-5 fw-bold text-danger mb-3">Selamat Datang di Starlib Luxe</h1>
+      <p class="lead text-muted">
+        Starlib Luxe adalah platform pembelajaran modern yang dirancang untuk generasi kreatif dan produktif.
+        Kami percaya bahwa pendidikan yang baik bukan hanya soal teori, tetapi juga tentang pengalaman,
+        eksplorasi, dan penerapan nyata. Dengan pengajar berpengalaman dan sistem pembelajaran yang fleksibel,
+        kamu bisa belajar dengan cara yang menyenangkan, efisien, dan berorientasi hasil.
+      </p>
+    </div>
+  </header>
+
+  <!-- Kelas -->
+  <main class="container pb-5" id="kelas">
+    <h2 class="text-center judul-section mb-4">Kelas Unggulan Starlib Luxe</h2>
+    <div class="row g-4 mt-1">
+
+      <!-- Kelas Matematika -->
+      <div class="col-12 col-md-4">
+        <div class="card shadow-sm h-100">
+          <img
+            src="https://tse4.mm.bing.net/th/id/OIP.ME3fpBQlY_f9FA5DWP-JwwHaEJ?pid=Api&P=0&h=180"
+            class="card-img-top logo-fit"
+            alt="Logo Kelas Matematika"
+            loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title text-danger fw-bold">Kelas Matematika</h5>
+            <p class="card-text text-muted" style="text-align: justify;">
+              Matematika adalah bahasa universal yang digunakan untuk memahami dunia di sekitar kita.
+              Di Kelas Matematika Starlib Luxe, kamu tidak hanya akan mempelajari rumus dan angka,
+              tetapi juga cara berpikir logis, analitis, dan sistematis dalam memecahkan masalah nyata.
+              Pembelajaran dikemas dengan pendekatan kontekstual: mulai dari konsep dasar seperti aljabar dan geometri,
+              hingga penerapan statistik dan logika dalam kehidupan sehari-hari maupun dunia kerja.
+              Dengan dukungan mentor berpengalaman dan latihan interaktif, kamu akan menyadari bahwa matematika bukanlah hal yang sulit —
+              melainkan keterampilan berpikir yang bisa membuka banyak peluang masa depan.
+            </p>
+            <button class="btn btn-danger w-100 mt-2" data-bs-toggle="modal" data-bs-target="#modalDaftar" data-kelas="Matematika">Daftar Sekarang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kelas Bahasa -->
+      <div class="col-12 col-md-4">
+        <div class="card shadow-sm h-100">
+          <img
+            src="https://tse3.mm.bing.net/th/id/OIP.WESMAUkQa5xcxrTVz6UcHwHaEH?pid=Api&P=0&h=180"
+            class="card-img-top logo-fit"
+            alt="Logo Kelas Bahasa"
+            loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title text-danger fw-bold">Kelas Bahasa</h5>
+            <p class="card-text text-muted" style="text-align: justify;">
+              Bahasa adalah jembatan komunikasi dan kunci utama untuk terhubung dengan dunia.
+              Di Kelas Bahasa Starlib Luxe, kamu akan mempelajari keterampilan berbahasa dari berbagai aspek:
+              membaca, menulis, berbicara, dan mendengarkan.  
+              Program ini tidak hanya berfokus pada tata bahasa dan kosakata,
+              tetapi juga pada penguasaan konteks, ekspresi, serta kepercayaan diri saat berbicara di depan umum.
+              Melalui simulasi percakapan, latihan penulisan kreatif, dan diskusi lintas budaya,
+              peserta akan memiliki kemampuan komunikasi yang efektif baik untuk lingkungan akademik maupun profesional.
+              Belajar bahasa di Starlib Luxe berarti membuka pintu untuk peluang global dan memperluas cara pandang terhadap dunia.
+            </p>
+            <button class="btn btn-danger w-100 mt-2" data-bs-toggle="modal" data-bs-target="#modalDaftar" data-kelas="Bahasa">Daftar Sekarang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kelas IT -->
+      <div class="col-12 col-md-4">
+        <div class="card shadow-sm h-100">
+          <img
+            src="https://tse1.mm.bing.net/th/id/OIP.5hGvzt8XuJLH65YuUCSIYAHaD5?pid=Api&P=0&h=180"
+            class="card-img-top logo-fit"
+            alt="Logo Kelas IT"
+            loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title text-danger fw-bold">Kelas IT (Teknologi Informasi)</h5>
+            <p class="card-text text-muted" style="text-align: justify;">
+              Dunia digital saat ini berkembang begitu pesat, dan kemampuan IT menjadi keahlian yang wajib dimiliki.
+              Di Kelas IT Starlib Luxe, kamu akan diperkenalkan dengan dasar-dasar teknologi informasi, pemrograman,
+              pengolahan data, serta pemahaman sistem digital yang digunakan di industri modern.
+              Materi disusun dengan pendekatan “learning by doing”, di mana peserta akan langsung terlibat
+              dalam proyek nyata seperti membuat website, aplikasi sederhana, hingga analisis data.
+              Mentor berpengalaman akan membimbing langkah demi langkah agar setiap peserta memahami
+              konsep teknologi sekaligus mampu menerapkannya secara praktis.  
+              Kelas ini cocok untuk pelajar, mahasiswa, hingga profesional muda yang ingin memperluas kemampuan di dunia digital.
+            </p>
+            <button class="btn btn-danger w-100 mt-2" data-bs-toggle="modal" data-bs-target="#modalDaftar" data-kelas="IT">Daftar Sekarang</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal Pendaftaran -->
+  <div class="modal fade" id="modalDaftar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header bg-danger text-white rounded-top-4">
+          <h5 class="modal-title fw-bold">Form Pendaftaran</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted mb-2" id="labelKelas">
+            Pendaftaran untuk Kelas <span class="fw-semibold" id="kelasTerpilih">-</span>
+          </p>
+
+          <form id="formDaftar" novalidate>
+            <input type="hidden" id="kelasInput" name="kelas">
+
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="nama" name="nama" required>
+              <div class="invalid-feedback">Nama wajib diisi.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+              <div class="invalid-feedback">Masukkan email yang valid.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="telepon" class="form-label">Nomor Telepon</label>
+              <input type="tel" class="form-control" id="telepon" name="telepon" pattern="^0[0-9]{9,}$" placeholder="08xxxxxxxxxx" required>
+              <div class="invalid-feedback">Isi nomor HP yang benar (minimal 10 digit, mulai 0).</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="pesan" class="form-label">Pesan Tambahan (opsional)</label>
+              <textarea class="form-control" id="pesan" name="pesan" rows="3"></textarea>
+            </div>
+
+            <button class="btn btn-danger w-100" type="submit">Kirim Pendaftaran</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast sukses -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index:1080">
+    <div id="toastSukses" class="toast align-items-center border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          ✅ Pendaftaran terkirim! Kami akan menghubungi kamu via email/telepon.
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Tutup"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-center text-light">
+    <div class="container">
+      © 2025 Starlib Luxe · Semua Hak Dilindungi
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script Halaman -->
+  <script>
+    const modalEl = document.getElementById('modalDaftar');
+    modalEl.addEventListener('show.bs.modal', (event) => {
+      const btn = event.relatedTarget;
+      const kelas = btn?.getAttribute('data-kelas') || 'Umum';
+      document.getElementById('kelasTerpilih').textContent = kelas;
+      document.getElementById('kelasInput').value = kelas;
+    });
+
+    document.getElementById('linkDaftar').addEventListener('click', (e) => {
+      e.preventDefault();
+      const modal = new bootstrap.Modal(modalEl);
+      document.getElementById('kelasTerpilih').textContent = 'Umum';
+      document.getElementById('kelasInput').value = 'Umum';
+      modal.show();
+    });
+
+    // Validasi & simulasi submit form
+    (function () {
+      const form = document.getElementById('formDaftar');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+        form.reset();
+        form.classList.remove('was-validated');
+        bootstrap.Modal.getInstance(modalEl).hide();
+        const toast = new bootstrap.Toast(document.getElementById('toastSukses'), { delay: 3000 });
+        toast.show();
+      }, false);
+    })();
+  </script>
+</body>
+</html>
