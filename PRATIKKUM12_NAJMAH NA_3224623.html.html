@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Najmah Nur Azizah — Creative Digital Designer</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root{
+      --bs-primary: #c1121f;
+      --bs-primary-rgb: 193, 18, 31;
+      --brand-red-600:#c1121f;
+      --brand-red-500:#e01e2b;
+      --brand-red-400:#ff2e3c;
+      --brand-red-300:#ff6b73;
+      --surface:#0f0f12;
+      --text:#f7f7f8;
+      --muted:#cfd0d4; /* abu-abu terang supaya tidak nabrak */
+    }
+
+    body{
+      background:linear-gradient(180deg,#0b0b0e,#141419 40%,#17171d);
+      color:var(--text);
+    }
+
+    .text-glow{ text-shadow:0 0 .6rem rgba(255,70,70,.25), 0 0 1.3rem rgba(255,70,70,.15); }
+
+    /* Navbar */
+    .navbar{ background:rgba(18,18,24,.7); backdrop-filter:blur(10px); }
+    .navbar .nav-link{ color:#ddd !important; font-weight:600; }
+    .navbar .nav-link.active,.navbar .nav-link:hover{ color:#fff !important; }
+
+    /* Hero */
+    .hero{
+      padding-top:7rem;
+      background:
+        radial-gradient(800px 300px at 10% 10%, rgba(var(--bs-primary-rgb),.14), transparent 60%),
+        radial-gradient(600px 260px at 85% 20%, rgba(255,80,80,.12), transparent 60%);
+    }
+    .btn-red{
+      background:linear-gradient(135deg,var(--brand-red-600),var(--brand-red-400));
+      border:none;color:#fff;
+      box-shadow:0 .6rem 1.4rem rgba(var(--bs-primary-rgb),.25);
+    }
+    .btn-red:hover{ filter:brightness(.95); }
+    .btn-outline-red{ border-color:var(--brand-red-300); color:#fff; }
+    .btn-outline-red:hover{ background:var(--brand-red-600); border-color:var(--brand-red-600); color:#fff; }
+
+    /* Foto profil */
+    .profile-pic{
+      width:260px; height:260px; border-radius:50%;
+      object-fit:cover; border:6px solid #fff;
+      box-shadow:0 0 35px rgba(255,50,50,.3);
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .profile-pic:hover{ transform:scale(1.04); box-shadow:0 0 50px rgba(255,70,70,.45); }
+
+    /* Kartu gelap + teks kontras agar tidak item/nabrak */
+    .card-dark{
+      background:linear-gradient(180deg,#18181f,#101016);
+      border:1px solid rgba(255,255,255,.06);
+      color:var(--text);
+    }
+    .card-dark .card-body,
+    .card-dark .card-body *{ color:var(--text); }
+    .card-dark .card-body .text-muted{ color:var(--muted) !important; }
+
+    /* Section title */
+    .section-title{
+      border-bottom:3px solid var(--brand-red-300);
+      display:inline-block; padding-bottom:.35rem; margin-bottom:1rem;
+    }
+
+    footer{
+      background:#0d0d11;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:#bdbdc7;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white text-glow" href="#home">
+        <i class="bi bi-stars me-2"></i>Najmah Nur Azizah
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link active" href="#home">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#keahlian">Keahlian</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7 text-center text-lg-start">
+          <h1 class="display-5 fw-bold text-white text-glow">Najmah Nur Azizah</h1>
+          <h4 class="fw-semibold mb-3 text-danger">Creative Digital Designer</h4>
+          <p class="lead mb-4" style="color:var(--muted)">Mewujudkan desain digital yang elegan, cepat, dan berkarakter — dari konsep hingga kode.</p>
+          <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+            <a href="#portfolio" class="btn btn-red btn-lg"><i class="bi bi-collection me-2"></i>Lihat Karya</a>
+            <a href="#kontak" class="btn btn-outline-red btn-lg"><i class="bi bi-chat-dots me-2"></i>Hubungi Saya</a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <img src="https://i.imgur.com/TJIPGQB.jpeg" alt="Najmah Nur Azizah" class="profile-pic mt-4 mt-lg-0">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- KEAHLIAN -->
+  <section id="keahlian" class="py-5">
+    <div class="container text-center">
+      <h2 class="section-title h1 fw-bold">Keahlian Utama</h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4">
+          <div class="card card-dark p-4 h-100">
+            <i class="bi bi-phone fs-1 text-danger mb-2"></i>
+            <h5 class="fw-semibold">Desain Responsif</h5>
+            <p class="text-muted">Tampilan optimal di semua perangkat, dari ponsel hingga desktop.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-dark p-4 h-100">
+            <i class="bi bi-magic fs-1 text-danger mb-2"></i>
+            <h5 class="fw-semibold">UI/UX Modern</h5>
+            <p class="text-muted">Pengalaman pengguna yang intuitif, estetis, dan menyenangkan.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-dark p-4 h-100">
+            <i class="bi bi-speedometer2 fs-1 text-danger mb-2"></i>
+            <h5 class="fw-semibold">Optimasi Performa</h5>
+            <p class="text-muted">Kode efisien untuk kecepatan dan aksesibilitas maksimal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="py-5">
+    <div class="container text-center">
+      <h2 class="section-title h1 fw-bold">Preview Project</h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4">
+          <div class="card card-dark h-100 overflow-hidden rounded-4">
+            <div class="ratio ratio-16x9 bg-dark" style="background:url('https://images.unsplash.com/photo-1485795959911-ea5ebf41b6ae?q=80&w=800&auto=format&fit=crop') center/cover;"></div>
+            <div class="card-body">
+              <h6 class="fw-bold">🌇 Desain Urban Elegan</h6>
+              <p class="text-muted mb-0">Konsep pencahayaan alami dan nuansa kota modern.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-dark h-100 overflow-hidden rounded-4">
+            <div class="ratio ratio-16x9 bg-dark" style="background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop') center/cover;"></div>
+            <div class="card-body">
+              <h6 class="fw-bold">🌊 Arsitektur Tepi Laut</h6>
+              <p class="text-muted mb-0">Memadukan elemen alam dengan desain berkelas tinggi.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-dark h-100 overflow-hidden rounded-4">
+            <div class="ratio ratio-16x9 bg-dark" style="background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop') center/cover;"></div>
+            <div class="card-body">
+              <h6 class="fw-bold">🌿 Taman Hijau Modern</h6>
+              <p class="text-muted mb-0">Harmoni antara arsitektur, ruang terbuka, dan alam.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Catatan: semua teks di bawah foto berada di .card-body (bukan di atas gambar),
+           warna teks dibuat terang agar tidak nabrak. -->
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak" class="py-5">
+    <div class="container text-center">
+      <h2 class="section-title h1 fw-bold">Hubungi Saya</h2>
+      <form id="contactForm" class="mx-auto" style="max-width:600px;">
+        <div class="row g-3">
+          <div class="col-md-6"><input id="nameInput" class="form-control" placeholder="Nama lengkap" required></div>
+          <div class="col-md-6"><input id="emailInput" type="email" class="form-control" placeholder="email@contoh.com" required></div>
+          <div class="col-12"><textarea id="messageInput" class="form-control" rows="4" placeholder="Tulis pesan..."></textarea></div>
+          <div class="col-12"><button class="btn btn-red w-100" type="submit">Kirim Pesan</button></div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 text-center">
+    <div class="container small">
+      <div>Dibuat oleh Najmah Nur Azizah</div>
+    </div>
+  </footer>
+
+  <!-- Mailto sederhana -->
+  <script>
+    (function(){
+      const form=document.getElementById('contactForm');
+      form.addEventListener('submit',e=>{
+        e.preventDefault();
+        const name=document.getElementById('nameInput').value.trim();
+        const email=document.getElementById('emailInput').value.trim();
+        const message=document.getElementById('messageInput').value.trim();
+        const subject=`Pesan Portfolio - ${name || 'Calon Klien'}`;
+        const body=`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message || '-'}`;
+        window.location.href=`mailto:hello@portfolio.id?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
