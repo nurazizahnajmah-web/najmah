@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio - Najmah Nur Azizah</title>
+
+  <style>
+    :root {
+      --red: #dc2626;
+      --red-dark: #b91c1c;
+      --red-soft: #fee2e2;
+      --bg: #f3f4f6;
+      --white: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #fee2e2, #f3f4f6);
+      color: var(--text);
+      padding: 20px;
+    }
+
+    /* WRAPPER CV STYLE */
+    .cv-wrapper {
+      max-width: 1050px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: 0 10px 35px rgba(15, 23, 42, 0.18);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: 520px;
+    }
+
+    /* SIDEBAR (KIRI) */
+    .sidebar {
+      background: linear-gradient(180deg, var(--red-dark), var(--red));
+      color: var(--white);
+      padding: 24px 22px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .photo-wrapper {
+      width: 190px;
+      height: 190px;
+      border-radius: 999px;
+      border: 4px solid rgba(255, 255, 255, 0.85);
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .name {
+      text-align: center;
+    }
+
+    .name h1 {
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .name p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .divider {
+      width: 60%;
+      height: 2px;
+      background: rgba(255,255,255,0.4);
+      margin: 8px auto 4px;
+      border-radius: 999px;
+    }
+
+    .side-section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      margin-top: 10px;
+    }
+
+    .side-info {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .side-info p {
+      margin-bottom: 4px;
+    }
+
+    .side-info span.label {
+      font-weight: 600;
+    }
+
+    .side-list {
+      font-size: 13px;
+      margin-top: 4px;
+      padding-left: 16px;
+    }
+
+    .side-list li {
+      margin-bottom: 4px;
+    }
+
+    /* MAIN (KANAN) */
+    .main {
+      padding: 18px 24px 26px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAVBAR DALAM CV */
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      font-size: 13px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      color: var(--muted);
+      background: #f9fafb;
+      transition: 0.2s;
+    }
+
+    .top-nav a:hover {
+      background: var(--red-soft);
+      color: var(--red-dark);
+      border-color: var(--red-soft);
+    }
+
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--red-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 18px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .section p {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* HOME SECTION STYLE */
+    .home-highlight {
+      background: #fef2f2;
+      border-radius: 12px;
+      padding: 12px 14px;
+      border: 1px solid #fee2e2;
+      margin-bottom: 10px;
+    }
+
+    .badge-role {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--red-soft);
+      color: var(--red-dark);
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* ABOUT DETAIL */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .about-grid ul {
+      font-size: 13px;
+      list-style: none;
+    }
+
+    .about-grid li {
+      margin-bottom: 4px;
+    }
+
+    .about-grid span.label {
+      font-weight: 600;
+    }
+
+    .skills-list {
+      margin-top: 4px;
+      padding-left: 18px;
+      font-size: 13px;
+    }
+
+    .skills-list li {
+      margin-bottom: 4px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .project-card {
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 10px 12px;
+      background: #f9fafb;
+    }
+
+    .project-card h3 {
+      font-size: 14px;
+      margin-bottom: 3px;
+      color: var(--red-dark);
+    }
+
+    .project-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-card a {
+      display: inline-block;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: var(--red);
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .project-card a:hover {
+      background: var(--red-dark);
+    }
+
+    /* CONTACT */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .contact-info p {
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .contact-info span.label {
+      font-weight: 600;
+    }
+
+    form {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 7px 8px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 12px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .btn-submit {
+      border: none;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background: var(--red-dark);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 880px) {
+      .cv-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
+      .photo-wrapper {
+        width: 130px;
+        height: 130px;
+      }
+
+      .side-section-title,
+      .side-info,
+      .side-list {
+        display: none; /* sidebar jadi lebih simple di HP */
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .about-grid,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .top-nav {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-wrapper">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="photo-wrapper">
+        <img src="https://i.imgur.com/TJIPGQB.jpeg" alt="Foto Najmah Nur Azizah">
+      </div>
+
+      <div class="name">
+        <h1>Najmah Nur Azizah</h1>
+        <div class="divider"></div>
+        <p>Mahasiswi | Komputerisasi Akuntansi</p>
+      </div>
+
+      <div class="side-info">
+        <p><span class="label">Tanggal Lahir:</span> 23 Mei 2006</p>
+        <p><span class="label">Kota:</span> Cirebon</p>
+        <p><span class="label">Fokus:</span> Administrasi Keuangan</p>
+      </div>
+
+      <div class="side-info">
+        <p class="side-section-title">Kontak Singkat</p>
+        <p><span class="label">WhatsApp:</span> 08966395154</p>
+        <p><span class="label">Instagram:</span> @njmhhh_</p>
+      </div>
+
+      <div class="side-info">
+        <p class="side-section-title">Skill Utama</p>
+        <ul class="side-list">
+          <li>Administrasi keuangan dasar</li>
+          <li>Pencatatan pemasukan & pengeluaran</li>
+          <li>Pengelolaan arsip & dokumen</li>
+          <li>Penggunaan komputer & web dasar</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <!-- NAV ATAS -->
+      <div class="top-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <!-- HOME -->
+      <section id="home" class="section">
+        <h2 class="section-title">Home</h2>
+        <div class="home-highlight">
+          <span class="badge-role">Perkenalan Singkat</span>
+          <p>
+            Halo, saya <strong>Najmah Nur Azizah</strong>, mahasiswi asal <strong>Cirebon</strong> 
+            yang memiliki ketertarikan pada bidang <strong>administrasi keuangan</strong> dan
+            pengelolaan data. Portofolio ini berisi perkenalan diri, profil dan skill,
+            kumpulan hasil karya, serta informasi kontak yang dapat dihubungi.
+          </p>
+        </div>
+        <p class="muted">
+          "Teliti, rapi, dan bertanggung jawab" adalah prinsip yang saya pegang
+          dalam mengerjakan tugas-tugas administrasi maupun pembuatan website sederhana.
+        </p>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <h2 class="section-title">About</h2>
+        <p>
+          Saya memiliki minat di bidang administrasi keuangan, terutama pada pencatatan transaksi,
+          penyusunan laporan sederhana, dan pengelolaan arsip. Melalui tugas-tugas perkuliahan dan latihan
+          mandiri, saya terus mengasah kemampuan dalam menggunakan komputer dan web untuk mendukung pekerjaan
+          administrasi keuangan.
+        </p>
+
+        <div class="about-grid">
+          <div>
+            <ul>
+              <li><span class="label">Nama:</span> Najmah Nur Azizah</li>
+              <li><span class="label">Tanggal Lahir:</span> 23 Mei 2006</li>
+              <li><span class="label">Kota Asal:</span> Cirebon</li>
+              <li><span class="label">Fokus:</span> Administrasi Keuangan</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size:13px; margin-bottom:4px;">Skill Administrasi Keuangan:</h4>
+            <ul class="skills-list">
+              <li>Pencatatan transaksi keuangan sederhana</li>
+              <li>Penyusunan laporan pemasukan dan pengeluaran</li>
+              <li>Pengelolaan arsip dan dokumen administrasi</li>
+              <li>Penggunaan komputer & aplikasi dasar (MS Office, web)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT -->
+      <section id="project" class="section">
+        <h2 class="section-title">Project</h2>
+        <p class="muted">
+          Berikut beberapa hasil karya dalam bentuk website yang saya buat sebagai tugas dan latihan,
+          dipublikasikan melalui GitHub:
+        </p>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Website Berita</h3>
+            <p>Halaman berita sederhana untuk latihan struktur layout dan konten informasi.</p>
+            <a href="https://nurazizahnajmah-web.github.io/najmah/najmah_berita.html" target="_blank">
+              Buka Website
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Website Pendidikan</h3>
+            <p>Website bertema pendidikan sebagai latihan desain web informatif.</p>
+            <a href="https://nurazizahnajmah-web.github.io/najmah/pendidikan_najmah.html" target="_blank">
+              Buka Website
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Portofolio Tugas</h3>
+            <p>Latihan pembuatan halaman portofolio sebagai tugas praktikum.</p>
+            <a href="https://nurazizahnajmah-web.github.io/najmah/PRATIKKUM12_NAJMAH%20NA_3224623.html.html" target="_blank">
+              Buka Website
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Toko Online Starlib Luxe</h3>
+            <p>Website toko online sederhana untuk menampilkan produk fashion.</p>
+            <a href="https://nurazizahnajmah-web.github.io/najmah/TOKO_STARLIB.html" target="_blank">
+              Buka Website
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <p><span class="label">No. WhatsApp:</span> 08966395154</p>
+            <p><span class="label">Instagram:</span> @njmhhh_</p>
+            <p class="muted" style="margin-top:6px;">
+              Silakan hubungi saya melalui WhatsApp atau Instagram. Anda juga dapat
+              mengisi formulir di samping untuk mengirim pesan secara langsung.
+            </p>
+          </div>
+          <div>
+            <form action="#" method="post">
+              <label for="nama">Nama</label>
+              <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
+
+              <label for="pesan">Pesan</label>
+              <textarea id="pesan" name="pesan" placeholder="Tulis pesan di sini"></textarea>
+
+              <button type="submit" class="btn-submit">Kirim Pesan</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © 2025 | Portofolio Najmah Nur Azizah | Komputerisasi Akuntansi
+      </footer>
+    </main>
+  </div>
+
+</body>
+</html>
