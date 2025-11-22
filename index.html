@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Najmah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+    :root {
+      --red: #ff1f3d;
+      --red-dark: #c0102b;
+      --red-soft: #ffe4e8;
+      --bg: #fff7f8;
+      --text: #111827;
+      --muted: #6b7280;
+      --white: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { text-decoration: none; color: inherit; }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 18px 40px;
+    }
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--red-dark);
+    }
+    .brand span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      background: var(--red-soft);
+      color: var(--red-dark);
+    }
+    .nav-links .active {
+      background: var(--red);
+      color: var(--white);
+    }
+    /* HERO */
+    .hero {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 26px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--red-soft);
+      font-size: 11px;
+      color: var(--red-dark);
+      margin-bottom: 10px;
+    }
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    .hero-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .hero-title span {
+      color: var(--red-dark);
+    }
+    .hero-text {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      border: 1px solid #ffd2dc;
+      background: var(--white);
+      color: var(--muted);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-ghost:hover {
+      background: var(--red-soft);
+      color: var(--red-dark);
+    }
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .hero-photo {
+      width: 230px;
+      aspect-ratio: 3/4;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #ffe0e7;
+      border: 3px solid var(--white);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      margin: 0 auto;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* SECTION / PROJECT DI HOME */
+    main section + section {
+      margin-top: 48px;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--red-dark);
+      margin-bottom: 4px;
+    }
+    .section-caption {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid #ffd4dd;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .card > p {
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .project-card {
+      background: #fffafb;
+      border-radius: 14px;
+      padding: 12px 14px 14px;
+      border: 1px solid #ffd5dd;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      transition: 0.18s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+      border-color: var(--red);
+    }
+    .project-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .project-card h3 {
+      font-size: 15px;
+      color: var(--red-dark);
+    }
+    .project-card p {
+      font-size: 12px;
+      color: var(--muted);
+      flex: 1;
+    }
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .project-link {
+      font-size: 12px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: var(--red);
+      color: var(--white);
+      font-weight: 500;
+    }
+    .project-link:hover { background: var(--red-dark); }
+    .project-meta {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-photo {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="navbar">
+    <div class="brand">
+      Najmah
+      <span>Portofolio • Komputerisasi Akuntansi</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Project</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span>Mahasiswi • Administrasi Keuangan & Web Dasar</span>
+        </div>
+        <h1 class="hero-title">
+          Hai, aku <span>Najmah</span>.<br>
+          Suka hal yang rapi dan terstruktur di <span>keuangan</span>.
+        </h1>
+        <p class="hero-text">
+          Mahasiswi Komputerisasi Akuntansi dari Cirebon yang tertarik pada
+          pencatatan keuangan, pengelolaan data, dan latihan membuat website
+          sederhana untuk mendukung pekerjaan administrasi.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn-ghost" onclick="location.href='about.html'">
+            Kenal Aku Lebih Dekat
+          </button>
+        </div>
+
+        <p class="hero-note">
+          Prinsip kerja: teliti, rapi, dan bertanggung jawab dalam setiap tugas.
+        </p>
+      </div>
+
+      <div class="hero-photo">
+        <img src="https://i.imgur.com/TJIPGQB.jpeg" alt="Foto Najmah Nur Azizah">
+      </div>
+    </section>
+
+    <!-- PROJECT SECTION DI HALAMAN UTAMA -->
+    <section id="project-home">
+      <h2 class="section-title">Project</h2>
+      <p class="section-caption">Beberapa latihan website yang sudah aku kerjakan</p>
+
+      <div class="card">
+        <p>
+          Berikut adalah beberapa halaman website yang aku buat sebagai tugas dan latihan.
+          Semua project ini dipublikasikan melalui GitHub supaya bisa dilihat dan dipelajari ulang.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-tag">Latihan Layout</div>
+            <h3>Website Berita</h3>
+            <p>
+              Halaman berita sederhana untuk latihan struktur layout dan penempatan teks.
+            </p>
+            <div class="project-footer">
+              <a class="project-link" href="https://nurazizahnajmah-web.github.io/najmah/najmah_berita.html" target="_blank">
+                Buka Website
+              </a>
+              <span class="project-meta">HTML • Layout dasar</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Website Informasi</div>
+            <h3>Website Pendidikan</h3>
+            <p>
+              Website bertema pendidikan sebagai media latihan tampilan informatif dan konten edukatif.
+            </p>
+            <div class="project-footer">
+              <a class="project-link" href="https://nurazizahnajmah-web.github.io/najmah/pendidikan_najmah.html" target="_blank">
+                Buka Website
+              </a>
+              <span class="project-meta">HTML • Konten edukasi</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Portofolio</div>
+            <h3>Portofolio Tugas</h3>
+            <p>
+              Halaman portofolio yang menampilkan data diri dan beberapa tugas praktikum.
+            </p>
+            <div class="project-footer">
+              <a class="project-link" href="https://nurazizahnajmah-web.github.io/najmah/PRATIKKUM12_NAJMAH%20NA_3224623.html.html" target="_blank">
+                Buka Website
+              </a>
+              <span class="project-meta">HTML • Portofolio</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Toko Online</div>
+            <h3>Toko Online Starlib Luxe</h3>
+            <p>
+              Website sederhana untuk menampilkan produk fashion dan informasi singkatnya.
+            </p>
+            <div class="project-footer">
+              <a class="project-link" href="https://nurazizahnajmah-web.github.io/najmah/TOKO_STARLIB.html" target="_blank">
+                Buka Website
+              </a>
+              <span class="project-meta">HTML • Produk fashion</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 • Portofolio Najmah Nur Azizah
+  </footer>
+</div>
+</body>
+</html>
