@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Najmah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+    :root {
+      --red: #ff1f3d;
+      --red-dark: #c0102b;
+      --red-soft: #ffe4e8;
+      --bg: #fff7f8;
+      --text: #111827;
+      --muted: #6b7280;
+      --white: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { text-decoration: none; color: inherit; }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 18px 40px;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--red-dark);
+    }
+    .brand span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      background: var(--red-soft);
+      color: var(--red-dark);
+    }
+    .nav-links .active {
+      background: var(--red);
+      color: var(--white);
+    }
+    main { margin-top: 40px; }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--red-dark);
+      margin-bottom: 4px;
+    }
+    .section-caption {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid #ffd4dd;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 18px;
+      margin-top: 4px;
+    }
+    .contact-info p {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .contact-info span {
+      font-weight: 600;
+    }
+    .contact-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    form {
+      background: #fffafb;
+      border-radius: 14px;
+      padding: 12px 14px 14px;
+      border: 1px solid #ffd5dd;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px 9px;
+      margin-bottom: 9px;
+      border-radius: 9px;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 12px;
+      outline: none;
+      background: #f9fafb;
+      transition: 0.18s;
+    }
+    input:focus,
+    textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 1px var(--red-soft);
+      background: #ffffff;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .btn-submit {
+      border: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-submit:hover {
+      background: var(--red-dark);
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="navbar">
+    <div class="brand">
+      Najmah
+      <span>Portofolio • Komputerisasi Akuntansi</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Project</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="section-title">Hubungi Saya</h1>
+    <p class="section-caption">Silakan gunakan form atau kontak langsung di bawah ini</p>
+
+    <div class="card">
+      <div class="contact-layout">
+        <div>
+          <form action="#" method="post">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
+
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" name="pesan" placeholder="Tulis pesan di sini"></textarea>
+
+            <button type="submit" class="btn-submit">Kirim Pesan</button>
+          </form>
+        </div>
+        <div class="contact-info">
+          <p><span>WhatsApp:</span> 08966395154</p>
+          <p><span>Instagram:</span> @njmhhh_</p>
+          <p class="contact-note">
+            Bisa chat melalui WhatsApp atau DM Instagram untuk keperluan tugas,
+            kerja sama kecil, atau sekadar tanya-tanya. Aku akan berusaha membalas
+            secepat mungkin.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 • Portofolio Najmah Nur Azizah
+  </footer>
+</div>
+</body>
+</html>
