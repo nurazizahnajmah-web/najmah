@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mari Jelajahi Kota Bukittinggi</title>
+    <style>
+        :root {
+            --bg-body: #f4f6fb;
+            --bg-card: #ffffff;
+            --primary: #1b4965;
+            --primary-soft: #e3f2fd;
+            --accent: #f9a826;
+            --text-main: #1f2933;
+            --text-muted: #6b7280;
+            --radius-lg: 18px;
+            --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+            /* Custom Colors for Pills */
+            --pill-blue: #bfdbfe;
+            --pill-orange: #fcd34d;
+            --pill-green: #a7f3d0;
+            --pill-pink: #fbcfe8;
+            --pill-yellow: #fde047;
+            --pill-default: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left, #dde9ff 0, #f4f6fb 40%, #fdfdfd 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* UTILITIES */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .pill {
+            margin-top: 0.2rem;
+            font-size: 0.75rem;
+            color: #4b5563;
+            border-radius: 999px;
+            padding: 0.15rem 0.5rem;
+            width: fit-content;
+            font-weight: 600;
+        }
+
+        .pill.blue { background-color: var(--pill-blue); }
+        .pill.orange { background-color: var(--pill-orange); }
+        .pill.green { background-color: var(--pill-green); }
+        .pill.pink { background-color: var(--pill-pink); }
+        .pill.yellow { background-color: var(--pill-yellow); }
+        .pill.default { background-color: var(--pill-default); }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(14px);
+            background: linear-gradient(to right, rgba(244,246,251,0.9), rgba(255,255,255,0.95));
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.6rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 20%, #fde68a, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111827;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 15px rgba(249, 115, 22, 0.45);
+        }
+
+        .brand-text {
+            font-weight: 650;
+            letter-spacing: 0.02em;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(209, 232, 255, 0.8);
+            border-color: rgba(129, 140, 248, 0.4);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 72vh;
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+            max-width: 1100px;
+            margin: 1.5rem auto 2.5rem;
+            padding: 1.5rem 1.25rem 0;
+            gap: 1.75rem;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.25rem;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(209, 250, 229, 0.8);
+            color: #166534;
+            font-size: 0.78rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+        }
+
+        .hero-title {
+            font-size: clamp(2.1rem, 4vw, 2.7rem);
+            font-weight: 750;
+            line-height: 1.15;
+            color: #0f172a;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 0.96rem;
+            color: var(--text-muted);
+            max-width: 32rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .badge {
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            border: 1px dashed rgba(148, 163, 184, 0.6);
+            background: rgba(255, 255, 255, 0.9);
+            color: #4b5563;
+        }
+
+        .hero-cta {
+            margin-top: 0.75rem;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-primary {
+            padding: 0.55rem 1.15rem;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, #1b4965, #2563eb);
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-primary span.arrow {
+            font-size: 1.1rem;
+        }
+
+        .hero-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.75), transparent 55%);
+        }
+
+        .hero-card-text {
+            position: absolute;
+            left: 1.1rem;
+            right: 1.1rem;
+            bottom: 1rem;
+            color: #f9fafb;
+        }
+
+        .hero-card-text h2 {
+            font-size: 1.35rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-card-text p {
+            font-size: 0.8rem;
+            color: #e5e7eb;
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(248, 250, 252, 0.35);
+            font-size: 0.72rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-chip span.dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #facc15;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 1100px;
+            margin: 0 auto 3.5rem;
+            padding: 0 1.25rem 2.5rem;
+        }
+
+        .section {
+            margin-top: 2.5rem;
+        }
+        
+        /* Tambahkan jarak atas untuk section pertama agar tidak terlalu dekat dengan hero saat di-scroll */
+        #profil {
+            padding-top: 0.05rem; 
+        }
+
+        .section-tagline {
+            font-size: 0.83rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 2.5rem; /* Tambahkan margin atas untuk setiap section-tagline */
+            margin-bottom: 0.2rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #0f172a;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 32rem;
+            margin-bottom: 1.3rem; /* Memberi jarak antara subtitle dan grid */
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Penyesuaian tinggi gambar untuk konsistensi */
+        .card:not(#jam-gadang-card) img {
+            height: 180px; /* Tinggi standar untuk semua kartu selain Jam Gadang */
+        }
+
+        #jam-gadang-card img {
+            height: 220px; /* Tinggi yang sedikit lebih besar untuk Jam Gadang agar lebih menonjol */
+        }
+
+
+        .card-body {
+            padding: 0.85rem 0.95rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            font-size: 0.9rem;
+        }
+
+        .card-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Hilangkan Card Link */
+        .card-link {
+            display: none;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.35);
+            padding: 1rem 1.25rem 1.6rem;
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            background: linear-gradient(to right, rgba(248, 250, 252, 0.9), rgba(226, 232, 240, 0.9));
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+                padding-top: 1.1rem;
+            }
+            .hero-image-wrapper {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                margin-top: 0.75rem;
+            }
+            .grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .hero-card {
+                max-width: 100%;
+            }
+            /* Gambar pada mobile/single column */
+            .card img {
+                height: 200px !important; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <div class="brand-icon">B</div>
+                <div class="brand-text">Explore Bukittinggi</div>
+            </div>
+            <nav class="nav-links">
+                <a href="#profil">Profil</a>
+                <a href="#wisata">Wisata</a>
+                <a href="#sejarah">Sejarah</a>
+                <a href="#kuliner">Kuliner</a>
+                <a href="#seni">Seni & Budaya</a>
+                <a href="#keagamaan">Keagamaan</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                Mari Jelajahi Kota Bukittinggi
+            </div>
+            <h1 class="hero-title">
+                Kota sejuk di <span>Ranah Minang</span> dengan pesona alam, sejarah, dan budaya yang lengkap.
+            </h1>
+            <p class="hero-subtitle">
+                Dari ikon Jam Gadang, jejak sejarah Lubang Jepang, hingga nikmatnya Nasi Kapau dan Itiak Lado Mudo,
+                Bukittinggi menghadirkan pengalaman wisata yang hangat dan berkesan.
+            </p>
+            <div class="hero-badges">
+                <div class="badge">🌄 Kota di dataran tinggi</div>
+                <div class="badge">🕰 Ikon Jam Gadang</div>
+                <div class="badge">🍽 Surga kuliner Minang</div>
+            </div>
+            <div class="hero-cta">
+                <a href="#profil">
+                    <button class="btn-primary">
+                        Mulai Jelajah
+                        <span class="arrow">➜</span>
+                    </button>
+                </a>
+                <span class="hero-note">Scroll ke bawah untuk melihat profil, wisata, sejarah, hingga kuliner.</span>
+            </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+            <div class="hero-card">
+                <img src="https://i.imgur.com/k59JvpX.jpeg" alt="Panorama Kota Bukittinggi yang Sejuk">
+                <div class="hero-card-overlay"></div>
+                <div class="hero-card-text">
+                    <div class="hero-chip">
+                        <span class="dot"></span>
+                        Mari jelajahi Kota Bukittinggi
+                    </div>
+                    <h2>Gerbang wisata alam & budaya Minangkabau</h2>
+                    <p>Perpaduan udara sejuk, lembah hijau, dan keramahtamahan khas Minang.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+    <section id="profil">
+        <p class="section-tagline">Profil Kota</p>
+        <h2 class="section-title">Gambaran Umum Kota Bukittinggi</h2>
+        <p class="section-subtitle">
+            Gambaran umum lanskap kota Bukittinggi yang dikelilingi pegunungan dan ikon Jam Gadang.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pemandangan_Bukittinggi.jpg"
+                    alt="Panorama Kota Bukittinggi dari ketinggian">
+                <div class="card-body">
+                    <div class="pill blue">Panorama Kota</div>
+                    <h3 class="card-title">Panorama Kota Bukittinggi</h3>
+                    <p class="card-desc">
+                        Pemandangan kota sejuk di dataran tinggi Minangkabau, dikelilingi perbukitan hijau.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukittinggiview.jpg"
+                    alt="View Kota Bukittinggi dari Fort de Kock">
+                <div class="card-body">
+                    <div class="pill blue">Lanskap Kota</div>
+                    <h3 class="card-title">Lanskap Kota & Perbukitan</h3>
+                    <p class="card-desc">
+                        Pemandangan kota dari area Fort de Kock, menampilkan rumah-rumah dan pepohonan hijau.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jalan_Ahmad_Yani_Bukittinggi.JPG"
+                    alt="Suasana jalan utama di Bukittinggi">
+                <div class="card-body">
+                    <div class="pill blue">Pusat Kota</div>
+                    <h3 class="card-title">Ruang Kota & Aktivitas Warga</h3>
+                    <p class="card-desc">
+                        Suasana jalan utama dengan bangunan toko dan aktivitas masyarakat di pusat Bukittinggi.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="wisata">
+        <p class="section-tagline">Wisata</p>
+        <h2 class="section-title">Wisata Populer di Bukittinggi</h2>
+        <p class="section-subtitle">
+            Destinasi wisata yang paling terkenal dan sering jadi ikon Kota Bukittinggi.
+        </p>
+
+        <div class="grid">
+            <article class="card" id="jam-gadang-card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.AHil9h44OjpaQdBzmMgbYAHaE7?pid=Api&P=0&h=180"
+                    alt="Menara Jam Gadang di pusat kota">
+                <div class="card-body">
+                    <div class="pill orange">Ikon Kota</div>
+                    <h3 class="card-title">Jam Gadang</h3>
+                    <p class="card-desc">
+                        Menara jam legendaris di jantung kota, jadi pusat keramaian dan landmark utama Bukittinggi.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://i.imgur.com/5XAEONo.jpeg" alt="Pemandangan Lembah Ngarai Sianok">
+                <div class="card-body">
+                    <div class="pill orange">Alam</div>
+                    <h3 class="card-title">Ngarai Sianok</h3>
+                    <p class="card-desc">
+                        Lembah curam dengan tebing hijau dan aliran sungai, spot favorit untuk foto panorama alam.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tembok_Gadang_Koto_Gadang.JPG"
+                    alt="Tangga panjang Great Wall Koto Gadang">
+                <div class="card-body">
+                    <div class="pill orange">Tracking</div>
+                    <h3 class="card-title">Great Wall Koto Gadang</h3>
+                    <p class="card-desc">
+                        Tangga panjang bergaya “tembok raksasa” dengan pemandangan Ngarai Sianok di sekitarnya.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="sejarah">
+        <p class="section-tagline">Sejarah</p>
+        <h2 class="section-title">Jejak Sejarah Bukittinggi</h2>
+        <p class="section-subtitle">
+            Tempat-tempat bersejarah yang menunjukkan peran Bukittinggi dalam masa kolonial dan perjuangan bangsa.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Japanese_Tunnel_Bukittinggi_Indonesia.jpg"
+                    alt="Pintu masuk terowongan Lubang Jepang">
+                <div class="card-body">
+                    <div class="pill green">Masa Pendudukan</div>
+                    <h3 class="card-title">Lubang Jepang</h3>
+                    <p class="card-desc">
+                        Terowongan bawah tanah peninggalan pendudukan Jepang, kini menjadi objek wisata sejarah populer.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Benteng_Fort_De_Kock_01.jpg"
+                    alt="Bangunan Benteng Fort de Kock dari kejauhan">
+                <div class="card-body">
+                    <div class="pill green">Kolonial</div>
+                    <h3 class="card-title">Benteng Fort de Kock</h3>
+                    <p class="card-desc">
+                        Benteng peninggalan Belanda di atas bukit, dulu pusat pertahanan, kini area wisata dan taman kota.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rumah_Kelahiran_Bung_Hatta_Bukittinggi.jpg"
+                    alt="Rumah Kelahiran Mohammad Hatta">
+                <div class="card-body">
+                    <div class="pill green">Proklamator</div>
+                    <h3 class="card-title">Rumah Kelahiran Bung Hatta</h3>
+                    <p class="card-desc">
+                        Rumah kayu dua lantai yang menjadi saksi masa kecil Mohammad Hatta, kini difungsikan sebagai museum.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="kuliner">
+        <p class="section-tagline">Kuliner</p>
+        <h2 class="section-title">Kuliner Khas Bukittinggi</h2>
+        <p class="section-subtitle">
+            Hidangan Minang yang terkenal dari kawasan Bukittinggi dan sekitarnya, wajib dicoba saat berkunjung.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Nasi_Kapau.JPG"
+                    alt="Sajian Nasi Kapau dengan berbagai lauk gulai">
+                <div class="card-body">
+                    <div class="pill pink">Kuliner Ikonik</div>
+                    <h3 class="card-title">Nasi Kapau</h3>
+                    <p class="card-desc">
+                        Nasi dengan aneka lauk gulai khas Kapau; terkenal dengan porsi melimpah dan cita rasa kuat.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Itiak_lado_mudo.jpg"
+                    alt="Bebek Itiak Lado Mudo dengan cabai hijau">
+                <div class="card-body">
+                    <div class="pill pink">Pedas</div>
+                    <h3 class="card-title">Itiak Lado Mudo</h3>
+                    <p class="card-desc">
+                        Olahan bebek dengan cabai hijau tumbuk yang gurih-pedas, hangat dinikmati di udara sejuk Bukittinggi.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lamang_tapai_Bukittinggi.JPG"
+                    alt="Lamang Tapai (ketan bambu dan tapai hitam)">
+                <div class="card-body">
+                    <div class="pill pink">Camilan Manis</div>
+                    <h3 class="card-title">Lamang Tapai</h3>
+                    <p class="card-desc">
+                        Ketan bakar dalam bambu yang disajikan dengan tapai hitam manis, favorit saat hari raya dan acara adat.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="seni">
+        <p class="section-tagline">Seni & Budaya</p>
+        <h2 class="section-title">Seni & Budaya Minangkabau</h2>
+        <p class="section-subtitle">
+            Warisan budaya Minang yang hidup di Bukittinggi, dari tarian, musik tradisional, hingga arsitektur rumah gadang.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tari_Piring_Minangkabau.jpg"
+                    alt="Penari membawakan Tari Piring">
+                <div class="card-body">
+                    <div class="pill yellow">Pertunjukan</div>
+                    <h3 class="card-title">Tari Piring</h3>
+                    <p class="card-desc">
+                        Tarian tradisional Minang dengan piring di tangan dan gerak cepat, sering tampil pada acara budaya.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Talempong_-_Sumatra_Barat.jpg"
+                    alt="Alat musik pukul tradisional Talempong">
+                <div class="card-body">
+                    <div class="pill yellow">Musik Tradisional</div>
+                    <h3 class="card-title">Talempong</h3>
+                    <p class="card-desc">
+                        Instrumen musik pukul berupa gong-gong kecil yang menghasilkan nada khas pengiring tari Minang.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Istano_Rajo_Basa_Pagaruyung.jpg"
+                    alt="Istano Basa Pagaruyung yang ikonik">
+                <div class="card-body">
+                    <div class="pill yellow">Arsitektur</div>
+                    <h3 class="card-title">Rumah Gadang / Istano Basa</h3>
+                    <p class="card-desc">
+                        Istana adat Minangkabau dengan atap gonjong menjulang, menjadi simbol kuat identitas budaya Minang.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="keagamaan">
+        <p class="section-tagline">Keagamaan</p>
+        <h2 class="section-title">Tempat Ibadah di Bukittinggi</h2>
+        <p class="section-subtitle">
+            Rumah ibadah di Bukittinggi yang menjadi pusat kegiatan religius dan juga tujuan wisata religi.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Masjid_Raya_Bukittinggi_Okt_2020.jpg"
+                    alt="Fasad modern Masjid Raya Bukittinggi">
+                <div class="card-body">
+                    <div class="pill default">Masjid Besar</div>
+                    <h3 class="card-title">Masjid Raya Bukittinggi</h3>
+                    <p class="card-desc">
+                        Masjid utama di pusat kota, dekat Jam Gadang dan Pasar Ateh, ramai dikunjungi jamaah dan wisatawan.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Masjid_Jami_Birugo.jpg"
+                    alt="Arsitektur khas Masjid Jami’ Birugo">
+                <div class="card-body">
+                    <div class="pill default">Masjid Bersejarah</div>
+                    <h3 class="card-title">Masjid Jami’ Birugo</h3>
+                    <p class="card-desc">
+                        Salah satu masjid tua di Bukittinggi, dikenal dengan arsitektur khas dan suasana yang tenang.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://www.rentalcarmedan.com/wp-content/uploads/2023/10/Maha-Vihara-Maitreya.jpg"
+                    alt="Bangunan Vihara Maitreya Bukittinggi">
+                <div class="card-body">
+                    <div class="pill default">Vihara</div>
+                    <h3 class="card-title">Vihara Maitreya Bukittinggi</h3>
+                    <p class="card-desc">
+                        Salah satu rumah ibadah umat Buddha di Bukittinggi, mencerminkan keberagaman kehidupan beragama.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+        &copy; 2025 Explore Bukittinggi. Dibuat Oleh NAJMAH NA_32241623_KOMPUTERISASI AKUNTANSI.
+    </footer>
+
+</body>
+</html>
